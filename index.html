@@ -22,10 +22,11 @@
       var gains = current * roi;
       current += gains;
     }
-    totalTradIRA = current * (1 - tax);
     totalRothIRA = current;
+    totalTradIRA = current * (1 - tax);
 
-    console.log('Total Traditional IRA: ', totalTradIRA);
+    console.log('Roth IRA Total: ', totalRothIRA);
+    console.log('Traditional IRA Total: ', totalTradIRA);
 
     // Total return after taxes from investing tax deductions from trad IRA
     for (var i = 0; i < years; i++) {
@@ -36,15 +37,13 @@
     }
     totalFromInvestedDeductions = deductionsCurrent;
 
+    totalTradIRAPlusDeductions = totalTradIRA + totalFromInvestedDeductions;
+
     console.log('Reinvested Tax Deductions: ', totalFromInvestedDeductions);
-
-    totalTradIRAWithDeductions = totalTradIRA + totalFromInvestedDeductions;
-
     console.log('Traditional IRA Total with Invested Deductions: ',
-      totalTradIRAWithDeductions);
-    console.log('Roth IRA Total: ', totalRothIRA);
+      totalTradIRAPlusDeductions);
 
-    var difference = totalTradIRAWithDeductions - totalRothIRA;
+    var difference = totalTradIRAPlusDeductions - totalRothIRA;
 
     console.log('Traditional - Roth = ', difference);
 
