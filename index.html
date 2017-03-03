@@ -12,7 +12,7 @@
     var deductionsCurrent = 0;
     var roi = 0.04;
     var years = 35;
-    var tax = 0.35;
+    var tax = 0.30;
     var maxAllowedContribution = 5500;
 
     // Total return from investing the max allowed contribution at the
@@ -40,7 +40,8 @@
 
     totalTradIRAWithDeductions = totalTradIRA + totalFromInvestedDeductions;
 
-    console.log('Traditional IRA Total with Invested Deductions: ', totalTradIRAWithDeductions);
+    console.log('Traditional IRA Total with Invested Deductions: ',
+      totalTradIRAWithDeductions);
     console.log('Roth IRA Total: ', totalRothIRA);
 
     var difference = totalTradIRAWithDeductions - totalRothIRA;
