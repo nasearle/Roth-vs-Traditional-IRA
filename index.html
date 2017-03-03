@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <script src="https://www.google.com/jsapi?callback=alert">
+
+    </script> -->
+    <script>
+
+    var current = 0;
+    var deductionsCurrent = 0;
+    var roi = 0.04;
+    var years = 35;
+    var tax = 0.35;
+    var maxAllowedContribution = 5500;
+
+    // Total return from investing the max allowed contribution at the
+    // specified roi
+    for (var i = 0; i < years; i++) {
+      current += maxAllowedContribution;
+      var gains = current * roi;
+      current += gains;
+    }
+    totalTradIRA = current * (1 - tax);
+    totalRothIRA = current;
+
+    console.log('Total Traditional IRA: ', totalTradIRA);
+
+    // Total return after taxes from investing tax deductions from trad IRA
+    for (var i = 0; i < years; i++) {
+      deductionsCurrent += maxAllowedContribution * tax;
+      var deductionsGain = deductionsCurrent * roi;
+      var taxedDeductionsGain = deductionsGain * (1 - tax);
+      deductionsCurrent += taxedDeductionsGain;
+    }
+    totalFromInvestedDeductions = deductionsCurrent;
+
+    console.log('Reinvested Tax Deductions: ', totalFromInvestedDeductions);
+
+    totalTradIRAWithDeductions = totalTradIRA + totalFromInvestedDeductions;
+
+    console.log('Traditional IRA Total with Invested Deductions: ', totalTradIRAWithDeductions);
+    console.log('Roth IRA Total: ', totalRothIRA);
+
+    var difference = totalTradIRAWithDeductions - totalRothIRA;
+
+    console.log('Traditional - Roth = ', difference);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
